@@ -39,7 +39,7 @@ window.renderStatistics = function(ctx, players, times) {
 
   for (var i = 0; i < players.length; i++) {
     if (players[i] === 'Вы') {
-      ctx.fillStyle = 'blue';
+      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = 'rgba(0, 0, 255,' + Math.random() + ')';
     }
