@@ -10,10 +10,10 @@ var WIZARD_SECOND_NAMES = [' да Марья', ' Верон', ' Мирабелл
 var WIZARD_COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARD_EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var wizard_names_copy = WIZARD_NAMES.slice();
-var wizard_second_names_copy = WIZARD_SECOND_NAMES.slice();
-var wizard_coat_copy = WIZARD_COAT_COLORS.slice();
-var wizard_eyes_copy = WIZARD_EYES_COLORS.slice();
+var wizardNamesCopy = WIZARD_NAMES.slice();
+var wizardSecondNamesCopy = WIZARD_SECOND_NAMES.slice();
+var wizardCoatCopy = WIZARD_COAT_COLORS.slice();
+var wizardEyesCopy = WIZARD_EYES_COLORS.slice();
 
 var randomElement = function (mass) {
   var randomNumber = Math.round((mass.length - 1) * Math.random());
@@ -24,24 +24,24 @@ var randomElement = function (mass) {
 
 var wizards = [
   {
-    name: randomElement(wizard_names_copy) + randomElement(wizard_second_names_copy),
-    coatColor: randomElement(wizard_coat_copy),
-    eyesColor: randomElement(wizard_eyes_copy)
+    name: randomElement(wizardNamesCopy) + randomElement(wizardSecondNamesCopy),
+    coatColor: randomElement(wizardCoatCopy),
+    eyesColor: randomElement(wizardEyesCopy)
   },
   {
-    name: randomElement(wizard_names_copy) + randomElement(wizard_second_names_copy),
-    coatColor: randomElement(wizard_coat_copy),
-    eyesColor: randomElement(wizard_eyes_copy)
+    name: randomElement(wizardNamesCopy) + randomElement(wizardSecondNamesCopy),
+    coatColor: randomElement(wizardCoatCopy),
+    eyesColor: randomElement(wizardEyesCopy)
   },
   {
-    name: randomElement(wizard_names_copy) + randomElement(wizard_second_names_copy),
-    coatColor: randomElement(wizard_coat_copy),
-    eyesColor: randomElement(wizard_eyes_copy)
+    name: randomElement(wizardNamesCopy) + randomElement(wizardSecondNamesCopy),
+    coatColor: randomElement(wizardCoatCopy),
+    eyesColor: randomElement(wizardEyesCopy)
   },
   {
-    name: randomElement(wizard_names_copy) + randomElement(wizard_second_names_copy),
-    coatColor: randomElement(wizard_coat_copy),
-    eyesColor: randomElement(wizard_eyes_copy)
+    name: randomElement(wizardNamesCopy) + randomElement(wizardSecondNamesCopy),
+    coatColor: randomElement(wizardCoatCopy),
+    eyesColor: randomElement(wizardEyesCopy)
   }
 ];
 
@@ -53,7 +53,7 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < wizards.length; i++) {
