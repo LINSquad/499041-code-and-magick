@@ -15,8 +15,6 @@ var wizard_second_names_copy = WIZARD_SECOND_NAMES.slice();
 var wizard_coat_copy = WIZARD_COAT_COLORS.slice();
 var wizard_eyes_copy = WIZARD_EYES_COLORS.slice();
 
-
-
 var randomElement = function (mass) {
   var randomNumber = Math.round((mass.length - 1) * Math.random());
   var element = mass[randomNumber];
@@ -48,13 +46,13 @@ var wizards = [
 ];
 
 var renderWizard = function (wizard) {
-    var wizardElement = similarWizardTemplate.cloneNode(true);
+  var wizardElement = similarWizardTemplate.cloneNode(true);
 
-    wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
+  wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
-    return wizardElement;
+  return wizardElement;
 }
 
 var fragment = document.createDocumentFragment();
