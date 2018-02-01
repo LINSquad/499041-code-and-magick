@@ -56,7 +56,7 @@ var randomElement = function (mass) {
   return element;
 };
 
-var wizards = totalWizards.map(function(totalWizards) {
+var wizards = totalWizards.map(function () {
   return {
     name: randomElement(wizardNamesCopy) + ' ' + randomElement(wizardSecondNamesCopy),
     coatColor: randomElement(wizardCoatCopy),
