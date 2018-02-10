@@ -1,9 +1,10 @@
 'use strict';
 
-document.querySelector('.setup').classList.remove('hidden');
-
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
+
+var ESC_KEYCODE = 27;
+var ENTER_KEYCODE = 13;
 
 var WIZARD_NAMES = [
   'Иван',
@@ -39,6 +40,13 @@ var WIZARD_EYES_COLORS = [
   'blue',
   'yellow',
   'green'
+];
+var WIZARD_FIREBALL_COLORS = [
+    '#ee4830',
+    '#30a8ee',
+    '#5ce6c0',
+    '#e848d5',
+    '#e6e848'
 ];
 
 var wizardNamesCopy = WIZARD_NAMES.slice();
@@ -81,3 +89,64 @@ for (var i = 0; i < wizards.length; i++) {
 similarListElement.appendChild(fragment);
 
 document.querySelector('.setup-similar').classList.remove('hidden');
+
+var setup = document.querySelector('.setup');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = setup.querySelector('.setup-close');
+var setupCoat = setup.querySelector('.setup-wizard').querySelector('.wizard-coat');
+var setupEyes = setup.querySelector('.setup-wizard').querySelector('.wizard-eyes');
+var setupFireball = setup.querySelector('.setup-fireball-wrap');
+var setupTitle = setup.querySelector('.setup-title');
+
+var onPopupEscPress = function(evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    if (setupTitle.tabIndex === '0') {
+      evt.stopPropagation();
+    } else {
+      closePopup();
+    }
+  }
+};
+
+var openPopup = function() {
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', onPopupEscPress);
+};
+
+var closePopup = function() {
+  setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+
+setupOpen.addEventListener('click', function() {
+  openPopup();
+});
+
+setupOpen.addEventListener('keydown', function(evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+  	tabindex="0";
+    openPopup();
+  }
+});
+
+setupClose.addEventListener('click', function() {
+  closePopup();
+});
+
+setupClose.addEventListener('keydown', function(evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
+});
+
+setupCoat.addEventListener('click', function() {
+  setupCoat.style.fill = WIZARD_COAT_COLORS[Math.round((WIZARD_COAT_COLORS.length - 1) * Math.random())];
+});
+
+setupEyes.addEventListener('click', function() {
+  setupEyes.style.fill = WIZARD_EYES_COLORS[Math.round((WIZARD_EYES_COLORS.length - 1) * Math.random())];
+});
+
+setupFireball.addEventListener('click', function() {
+  setupFireball.style.background = WIZARD_FIREBALL_COLORS[Math.round((WIZARD_FIREBALL_COLORS.length - 1) * Math.random())];
+});
