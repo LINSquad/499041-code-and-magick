@@ -96,15 +96,14 @@ var setupClose = setup.querySelector('.setup-close');
 var setupCoat = setup.querySelector('.setup-wizard').querySelector('.wizard-coat');
 var setupEyes = setup.querySelector('.setup-wizard').querySelector('.wizard-eyes');
 var setupFireball = setup.querySelector('.setup-fireball-wrap');
-var setupTitle = setup.querySelector('.setup-title');
+var setupUserName = setup.querySelector('.setup-user-name');
 
 var onPopupEscPress = function(evt) {
   if (evt.keyCode === ESC_KEYCODE) {
-    if (setupTitle.tabIndex === '0') {
-      evt.stopPropagation();
-    } else {
-      closePopup();
+    if (evt.target === setupUserName) {
+      return false;
     }
+    setup.classList.add('hidden');
   }
 };
 
