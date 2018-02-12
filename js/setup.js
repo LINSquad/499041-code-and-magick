@@ -135,14 +135,16 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
-setupCoat.addEventListener('click', function () {
+var setupOpenHandlers = function () {
   setupCoat.style.fill = WIZARD_COAT_COLORS[Math.round((WIZARD_COAT_COLORS.length - 1) * Math.random())];
-});
-
-setupEyes.addEventListener('click', function () {
+};
+var setupCloseHandlers = function () {
   setupEyes.style.fill = WIZARD_EYES_COLORS[Math.round((WIZARD_EYES_COLORS.length - 1) * Math.random())];
-});
-
-setupFireball.addEventListener('click', function () {
+};
+var setupCoatHandlers = function () {
   setupFireball.style.background = WIZARD_FIREBALL_COLORS[Math.round((WIZARD_FIREBALL_COLORS.length - 1) * Math.random())];
-});
+};
+
+setupCoat.addEventListener('click', setupOpenHandlers);
+setupEyes.addEventListener('click', setupCloseHandlers);
+setupFireball.addEventListener('click', setupCoatHandlers);
