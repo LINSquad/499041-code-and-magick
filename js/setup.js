@@ -99,9 +99,6 @@ var setupFireball = setup.querySelector('.setup-fireball-wrap');
 var setupUserName = setup.querySelector('.setup-user-name');
 
 var onPopupEscPress = function (evt) {
-  if (evt.keyCode !== ESC_KEYCODE) {
-    return;
-  }
   if (evt.target === setupUserName) {
     return false;
   }
