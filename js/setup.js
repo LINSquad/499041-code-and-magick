@@ -42,11 +42,11 @@ var WIZARD_EYES_COLORS = [
   'green'
 ];
 var WIZARD_FIREBALL_COLORS = [
-    '#ee4830',
-    '#30a8ee',
-    '#5ce6c0',
-    '#e848d5',
-    '#e6e848'
+  '#ee4830',
+  '#30a8ee',
+  '#5ce6c0',
+  '#e848d5',
+  '#e6e848'
 ];
 
 var wizardNamesCopy = WIZARD_NAMES.slice();
@@ -98,54 +98,53 @@ var setupEyes = setup.querySelector('.setup-wizard').querySelector('.wizard-eyes
 var setupFireball = setup.querySelector('.setup-fireball-wrap');
 var setupUserName = setup.querySelector('.setup-user-name');
 
-var onPopupEscPress = function(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    if (evt.target === setupUserName) {
-      return false;
-    }
-    setup.classList.add('hidden');
+var onPopupEscPress = function (evt) {
+  if (evt.keyCode !== ESC_KEYCODE) return;
+  if (evt.target === setupUserName) {
+    return false;
   }
+  closePopup();
 };
 
-var openPopup = function() {
+var openPopup = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
 
-var closePopup = function() {
+var closePopup = function () {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function() {
+setupOpen.addEventListener('click', function () {
   openPopup();
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
-  	tabindex="0";
+  	//tabindex="0";
     openPopup();
   }
 });
 
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener('click', function () {
   closePopup();
 });
 
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
-setupCoat.addEventListener('click', function() {
+setupCoat.addEventListener('click', function () {
   setupCoat.style.fill = WIZARD_COAT_COLORS[Math.round((WIZARD_COAT_COLORS.length - 1) * Math.random())];
 });
 
-setupEyes.addEventListener('click', function() {
+setupEyes.addEventListener('click', function () {
   setupEyes.style.fill = WIZARD_EYES_COLORS[Math.round((WIZARD_EYES_COLORS.length - 1) * Math.random())];
 });
 
-setupFireball.addEventListener('click', function() {
+setupFireball.addEventListener('click', function () {
   setupFireball.style.background = WIZARD_FIREBALL_COLORS[Math.round((WIZARD_FIREBALL_COLORS.length - 1) * Math.random())];
 });
