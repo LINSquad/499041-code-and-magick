@@ -103,6 +103,7 @@ var onPopupEscPress = function (evt) {
     return false;
   }
   closePopup();
+  return true;
 };
 
 var openPopup = function () {
