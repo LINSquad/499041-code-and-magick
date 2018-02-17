@@ -3,7 +3,6 @@
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
 
-var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
 
 var WIZARD_NAMES = [
